@@ -321,6 +321,8 @@ export const deleteFavourite = (favourite_id) => async (dispatch, getState) => {
       },
     })
 
+    console.log(_)
+
     dispatch({
       type: USER_DELETE_FAVOURITE_SUCCESS,
       payload: {

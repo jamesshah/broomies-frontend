@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import { Container } from 'react-bootstrap'
 import HomeScreen from './screens/HomeScreen'
 import SignUpScreen from './screens/SignUpScreen'
 import LoginScreen from './screens/LoginScreen'

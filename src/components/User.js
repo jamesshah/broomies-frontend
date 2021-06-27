@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Card, Button, Col, Row, Spinner } from 'react-bootstrap'
+import { Card, Button, Col, Row } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { addFavourite, deleteFavourite } from '../actions/userActions'
 import { Link } from 'react-router-dom'
@@ -62,23 +62,23 @@ const User = ({ user, id, favourite }) => {
               </Link>
             </Col>
           </Row>
-          {user.facebook.length != 0 && (
+          {user.facebook.length !== 0 && (
             <a href={`${user.facebook}`}>
               <Facebook />
             </a>
           )}
-          {user.instagram.length != 0 && (
-            <a>
+          {user.instagram.length !== 0 && (
+            <a href={`${user.instagram}`}>
               <Instagram />
             </a>
           )}
-          {user.twitter.length != 0 && (
-            <a>
+          {user.twitter.length !== 0 && (
+            <a href={`${user.twitter}`}>
               <Twitter />
             </a>
           )}
-          {user.linkedin.length != 0 && (
-            <a>
+          {user.linkedin.length !== 0 && (
+            <a href={`${user.linkedin}`}>
               <Linkedin />
             </a>
           )}

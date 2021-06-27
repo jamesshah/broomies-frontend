@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Container, Row, Image } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 import Loader from '../components/Loader'
 import User from '../components/User'
 import Message from '../components/Message'
@@ -29,7 +29,7 @@ const FavouritesScreen = ({ history }) => {
       if (!favourites) dispatch(getFavouriteList())
       // setTempLoading(loading)
     }
-  }, [dispatch, history, userInfo, favourites])
+  }, [dispatch, history, userInfo, favourites, users])
 
   return (
     <section

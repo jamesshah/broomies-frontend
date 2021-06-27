@@ -12,9 +12,9 @@ const Header = () => {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
-  const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-device-width: 992px)',
-  })
+  // const isDesktopOrLaptop = useMediaQuery({
+  //   query: '(min-device-width: 992px)',
+  // })
 
   const isMobile = useMediaQuery({
     query: '(max-width: 576px)',

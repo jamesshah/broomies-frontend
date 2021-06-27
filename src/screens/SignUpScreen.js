@@ -11,7 +11,6 @@ import {
   Spinner,
 } from 'react-bootstrap'
 import Message from '../components/Message'
-import Loader from '../components/Loader'
 import Footer from '../components/Footer'
 import { register } from '../actions/userActions'
 import AutoComplete from '../components/AutoComplete'

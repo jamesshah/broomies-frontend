@@ -33,11 +33,11 @@ const ProfileScreen = ({ history }) => {
     userUpdateProfile
 
   const userLogin = useSelector((state) => state.userLogin)
-  const { userLoginLoading, userLoginError, userInfo } = userLogin
+  const { userInfo } = userLogin
 
-  const isMobile = useMediaQuery({
-    query: '(max-width: 576px)',
-  })
+  // const isMobile = useMediaQuery({
+  //   query: '(max-width: 576px)',
+  // })
 
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-device-width: 768px)',
@@ -307,10 +307,9 @@ const ProfileScreen = ({ history }) => {
             style={{ backgroundColor: 'rgb(33,34,36)' }}
           >
             <Button
-              style={{ backgroundColor: '#4D61FC' }}
+              style={{ backgroundColor: '#4D61FC', width: '100%' }}
               variant='primary'
               type='submit'
-              style={{ width: '100%' }}
             >
               Update
             </Button>

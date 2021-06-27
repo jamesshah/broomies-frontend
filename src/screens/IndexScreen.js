@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { Container, Row, Col, Image, CardDeck, Card } from 'react-bootstrap'
-import { ArrowRight, ArrowUpCircle } from 'react-bootstrap-icons'
+import { Container, Row, Col, Image } from 'react-bootstrap'
+import { ArrowRight } from 'react-bootstrap-icons'
 import Footer from '../components/Footer'
 // import axios from 'axios'
 

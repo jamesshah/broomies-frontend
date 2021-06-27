@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Container } from 'react-bootstrap'
 import Loader from '../components/Loader'
@@ -23,7 +23,7 @@ const UserScreen = ({ match, history }) => {
       history.replace('/profile')
     }
     dispatch(getUserProfile(username))
-  }, [username])
+  }, [username, userInfo, history, dispatch])
 
   return (
     <Container className='mt-5 p-5'>
