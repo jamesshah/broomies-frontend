@@ -21,7 +21,7 @@ const User = ({ user, id, favourite }) => {
   }
 
   return (
-    <Col lg={6} md={8}>
+    <Col lg={6} md={6}>
       <Card
         key={id}
         className='p-2 m-2'

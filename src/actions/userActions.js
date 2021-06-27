@@ -28,6 +28,9 @@ import {
   USER_PROFILE_REQUEST,
   USER_PROFILE_SUCCESS,
   USER_PROFILE_FAIL,
+  SEARCH_USERS_FAIL,
+  SEARCH_USERS_REQUEST,
+  SEARCH_USERS_SUCCESS,
 } from '../constants/userConstants'
 
 export const register =
@@ -367,3 +370,40 @@ export const getUserProfile = (username) => async (dispatch) => {
     })
   }
 }
+
+export const getSearchUsers =
+  (searchLocation) => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: SEARCH_USERS_REQUEST,
+      })
+      console.log(searchLocation)
+      const {
+        userLogin: { userInfo },
+      } = getState()
+
+      const { data } = await axios.post(
+        'http://localhost:5000/users/search',
+        { searchLocation },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${userInfo.token}`,
+          },
+        }
+      )
+
+      dispatch({
+        type: SEARCH_USERS_SUCCESS,
+        payload: data,
+      })
+    } catch (error) {
+      dispatch({
+        type: SEARCH_USERS_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      })
+    }
+  }

@@ -28,6 +28,9 @@ import {
   USER_PROFILE_REQUEST,
   USER_PROFILE_SUCCESS,
   USER_PROFILE_FAIL,
+  SEARCH_USERS_REQUEST,
+  SEARCH_USERS_SUCCESS,
+  SEARCH_USERS_FAIL,
 } from '../constants/userConstants'
 
 export const userRegisterReducer = (state = {}, action) => {
@@ -150,6 +153,19 @@ export const userProfileReducer = (state = {}, action) => {
       return { userProfileLoading: false, user: action.payload }
     case USER_PROFILE_FAIL:
       return { userProfileLoading: false, userProfileError: action.payload }
+    default:
+      return state
+  }
+}
+
+export const searchUsersReducer = (state = {}, action) => {
+  switch (action.type) {
+    case SEARCH_USERS_REQUEST:
+      return { searchUsersLoading: true }
+    case SEARCH_USERS_SUCCESS:
+      return { searchUsersLoading: false, users: action.payload }
+    case SEARCH_USERS_FAIL:
+      return { searchUsersLoading: false, searchUsersError: action.payload }
     default:
       return state
   }

@@ -7,6 +7,7 @@ import IndexScreen from './screens/IndexScreen'
 import Header from './components/Header'
 import FavouritesScreen from './screens/FavouritesScreen'
 import UserScreen from './screens/UserScreen'
+import SearchScreen from './screens/SearchScreen'
 import NotFoundScreen from './screens/NotFoundScreen'
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path='/signup' component={SignUpScreen} exact />
           <Route path='/login' component={LoginScreen} exact />
           <Route path='/profile' component={ProfileScreen} exact />
+          <Route path='/search' component={SearchScreen} exact />
           <Route path='/' component={IndexScreen} exact />
           <Route path='/user/:username' component={UserScreen} />
           <Route path='*' component={NotFoundScreen} />

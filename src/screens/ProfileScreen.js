@@ -14,7 +14,6 @@ const ProfileScreen = ({ history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [bio, setBio] = useState('')
-  const [placeName, setPlaceName] = useState('')
   const [userLocation, setUserLocation] = useState(null)
   const [category, setCategory] = useState(null)
   const [gender, setGender] = useState(null)
@@ -56,7 +55,6 @@ const ProfileScreen = ({ history }) => {
         setBio(user.bio)
         setBioLength(user.bio.length)
         setUserLocation(user.location)
-        setPlaceName(user.location.place_name)
         setCategory(user.category)
         setGender(user.gender)
         setFacebook(user.facebook)
@@ -186,7 +184,7 @@ const ProfileScreen = ({ history }) => {
                 <Form.Group className='mb-3'>
                   <Form.Label>Location</Form.Label>
                   <AutoComplete
-                    placeName={placeName}
+                    userLocation={userLocation}
                     setUserLocation={setUserLocation}
                   />
                 </Form.Group>

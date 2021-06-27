@@ -1,14 +1,24 @@
-import React, { useState, useCallback } from 'react'
+import React, { useState, useCallback, useEffect } from 'react'
 import { FormControl, ListGroup } from 'react-bootstrap'
 import axios from 'axios'
 import debounce from 'lodash.debounce'
 import { GeoAlt } from 'react-bootstrap-icons'
 
-const AutoComplete = ({ className, placeName, setUserLocation }) => {
-  const [search, setSearch] = useState(placeName)
+const AutoComplete = ({
+  className,
+  placeholder,
+  userLocation,
+  setUserLocation,
+}) => {
+  // const place = placeName
+  const [search, setSearch] = useState('')
   const [loading, setLoading] = useState(false)
   const [suggestions, setSuggestions] = useState([])
   const [valid, setValid] = useState(true)
+
+  useEffect(() => {
+    setSearch(userLocation?.place_name)
+  }, [userLocation])
 
   const makeRequest = async (query) => {
     console.log(query)
@@ -35,7 +45,6 @@ const AutoComplete = ({ className, placeName, setUserLocation }) => {
   }
 
   const listOnClick = (suggestion) => {
-    console.log(suggestion.place_name)
     setValid(true)
     setLoading(false)
     setSuggestions([])
@@ -43,6 +52,7 @@ const AutoComplete = ({ className, placeName, setUserLocation }) => {
     setUserLocation(suggestion)
   }
 
+  // eslint-disable-next-line
   const debouncedSave = useCallback(
     debounce((newValue) => makeRequest(newValue), 1000),
     []
@@ -51,7 +61,7 @@ const AutoComplete = ({ className, placeName, setUserLocation }) => {
   //   const getSuggestions = (query) => {
 
   const updateValue = (newValue) => {
-    // console.log(newValue)
+    // console.log(search)
     setLoading(true)
     setSearch(newValue)
     // setUserLocation(newValue)
@@ -63,7 +73,7 @@ const AutoComplete = ({ className, placeName, setUserLocation }) => {
       <FormControl
         type='text'
         // className={className}
-        placeholder='Find roommates near...'
+        placeholder={placeholder ? placeholder : 'Find broomies near...'}
         value={search}
         onChange={(e) => updateValue(e.target.value)}
         required
