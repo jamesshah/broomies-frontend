@@ -3,100 +3,6 @@ import { useSelector } from 'react-redux'
 import { Container, Row, Col, Image } from 'react-bootstrap'
 import { ArrowRight } from 'react-bootstrap-icons'
 import Footer from '../components/Footer'
-// import axios from 'axios'
-
-// import Autocomplete from '../components/AutoComplete'
-
-// const IndexScreen = () => {
-//   // const [version, setVersion] = useState('')
-//   const [latitude, setLatitude] = useState('')
-//   const [longitude, setLongitude] = useState('')
-//   const [search, setSearch] = useState('')
-//   const [data, setData] = useState('')
-//   const [error, setError] = useState('')
-
-//   // function geoFindme() {
-//   //   async function success(position) {
-//   //     setError('')
-//   //     setLatitude(position.coords.latitude)
-//   //     setLongitude(position.coords.longitude)
-
-//   //     const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${longitude},${latitude}.json?access_token=pk.eyJ1IjoidmV3YW1hbTI5MSIsImEiOiJja3E0MG81c3kwaWxyMnZvNjFtbnFjNjY0In0.4eO5797VhghTYmHa1MPG8w`
-
-//   //     console.log(url)
-
-//   //     // const res = await axios.get(url)
-//   //     // setData(res)
-//   //     // console.log(data)
-//   //   }
-
-//   //   function errorFunc() {
-//   //     setError('Unable to retrieve your location')
-//   //   }
-
-//   //   if (!navigator.geolocation) {
-//   //     setError('Geolocation is not supported by your browser')
-//   //   } else {
-//   //     setError('Locating…')
-//   //     navigator.geolocation.getCurrentPosition(success, errorFunc)
-//   //   }
-//   // }
-
-//   async function submitHandler(e) {
-//     setSearch(e.target.value)
-
-//     const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${search}.json?country=IN&autocomplete=true&access_token=pk.eyJ1IjoidmV3YW1hbTI5MSIsImEiOiJja3E0MG81c3kwaWxyMnZvNjFtbnFjNjY0In0.4eO5797VhghTYmHa1MPG8w`
-
-//     // console.log(url)
-
-//     const res = await axios.get(url)
-//     setData(res)
-//     console.log(data)
-//   }
-
-//   useEffect(() => {
-//     // geoFindme()
-
-//     if (!navigator.geolocation) {
-//       setError('Geolocation is not supported by your browser')
-//     } else {
-//       navigator.geolocation.getCurrentPosition(
-//         (position) => {
-//           setError('')
-//           setLatitude(position.coords.latitude)
-//           setLongitude(position.coords.longitude)
-//         },
-//         (err) => {
-//           setError('Error Occurred')
-//         }
-//       )
-//     }
-//   }, [])
-
-//   return (
-//     <Container>
-//       <Row>
-//         <Col>
-//           {/* <h1>Hello World</h1> */}
-//           <h3>{latitude}</h3>
-//           <h3>{longitude}</h3>
-//         </Col>
-//         {error && <Col>{<h1>{error}</h1>}</Col>}
-//       </Row>
-//       <Row>
-//         <Col>
-//           <input type='text' value={search} onChange={submitHandler}></input>
-//         </Col>
-//       </Row>
-//       {/* <Users /> */}
-//     </Container>
-//   )
-// }
-
-// export default IndexScreen
-
-// import React from 'react'
-// import AutoComplete from '../components/AutoComplete'
 
 const IndexScreen = ({ history }) => {
   const userLogin = useSelector((state) => state.userLogin)
@@ -153,14 +59,11 @@ const IndexScreen = ({ history }) => {
             <Col md className='p-5'>
               <h1>Find nearby roommates</h1>
               <p className='lead'>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Corrupti iste velit ea ex sapiente mollitia.
+                Find broomies <i>bro + roomies</i> by location.
               </p>
               <p style={{ color: 'rgb(156,163,175)' }}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse,
-                eligendi eaque ex, numquam ipsum rem inventore consectetur
-                totam, enim similique dolore. Praesentium ad placeat non
-                reprehenderit aliquam quos ipsa quasi?
+                You can find users looking for a roommate by city. I'll soon be
+                adding a feature to select the range to search roommates nearby.
               </p>
             </Col>
           </Row>
@@ -175,6 +78,9 @@ const IndexScreen = ({ history }) => {
           <Row className='justify-content-center align-items-center'>
             <Col md className='p-5'>
               <h1>Personalised Recommendations</h1>
+              <span style={{ backgroundColor: 'blue', padding: '2px' }}>
+                (Coming soon)
+              </span>
               <p className='lead'>
                 Get the best roommate that matches your profile.
               </p>

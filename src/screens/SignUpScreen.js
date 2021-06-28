@@ -31,13 +31,12 @@ const SignUpScreen = ({ location, history }) => {
   // const userLogin = useSelector((state) => state.userLogin)
   // const { userLoginLoading, userLoginError, userInfo } = userLogin
 
-  const redirect = location.search ? location.search.split('=')[1] : '/home'
+  const redirect = location.search ? location.search.split('=')[1] : '/profile'
 
   useEffect(() => {
     if (localStorage.getItem('userInfo')) {
       history.replace('/profile')
     }
-
     if (userInfo) {
       history.push(redirect)
     }

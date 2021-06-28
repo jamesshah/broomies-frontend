@@ -33,6 +33,8 @@ import {
   SEARCH_USERS_SUCCESS,
 } from '../constants/userConstants'
 
+const baseUrl = 'http://localhost:5000'
+
 export const register =
   (email, username, password, location, category, gender) =>
   async (dispatch) => {
@@ -43,7 +45,7 @@ export const register =
 
       // console.log('sending post request in userActions')
       const { data } = await axios.post(
-        'http://localhost:5000/users',
+        `${baseUrl}/users`,
         { email, username, password, location, gender, category },
         { headers: { 'Content-Type': 'application/json' } }
       )
@@ -80,7 +82,7 @@ export const login = (username, password) => async (dispatch) => {
 
     // console.log('sending post request in userActions')
     const { data } = await axios.post(
-      'http://localhost:5000/users/login',
+      `${baseUrl}/users/login`,
       { username, password },
       { headers: { 'Content-Type': 'application/json' } }
     )
@@ -121,7 +123,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
     } = getState()
 
     // console.log('sending post request in userActions')
-    const { data } = await axios.get(`http://localhost:5000/users/${id}`, {
+    const { data } = await axios.get(`${baseUrl}/users/${id}`, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${userInfo.token}`,
@@ -157,16 +159,12 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       userLogin: { userInfo },
     } = getState()
 
-    const { data } = await axios.put(
-      `http://localhost:5000/users/profile`,
-      user,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${userInfo.token}`,
-        },
-      }
-    )
+    const { data } = await axios.put(`${baseUrl}/users/profile`, user, {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    })
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,
       payload: data,
@@ -192,7 +190,7 @@ export const getUserList = () => async (dispatch, getState) => {
       userLogin: { userInfo },
     } = getState()
 
-    const { data } = await axios.get('http://localhost:5000/users/', {
+    const { data } = await axios.get(`${baseUrl}/users/`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
@@ -227,14 +225,11 @@ export const getFavouriteList = () => async (dispatch, getState) => {
       userLogin: { userInfo },
     } = getState()
 
-    const favourites = await axios.get(
-      'http://localhost:5000/users/favourites',
-      {
-        headers: {
-          Authorization: `Bearer ${userInfo.token}`,
-        },
-      }
-    )
+    const favourites = await axios.get(`${baseUrl}/users/favourites`, {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    })
 
     console.log('favourites', favourites.data)
 
@@ -272,7 +267,7 @@ export const addFavourite = (favourite_id) => async (dispatch, getState) => {
 
     // console.log(userInfo.token)
     const { data } = await axios.post(
-      'http://localhost:5000/users/favourites',
+      `${baseUrl}/users/favourites`,
       { favourite_id },
       {
         headers: {
@@ -314,7 +309,7 @@ export const deleteFavourite = (favourite_id) => async (dispatch, getState) => {
     } = getState()
 
     // console.log(userInfo.token)
-    const _ = await axios.delete('http://localhost:5000/users/favourites', {
+    const _ = await axios.delete(`${baseUrl}/users/favourites`, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${userInfo.token}`,
@@ -350,9 +345,7 @@ export const getUserProfile = (username) => async (dispatch) => {
       type: USER_PROFILE_REQUEST,
     })
 
-    const { data } = await axios.get(
-      `http://localhost:5000/users/user/${username}`
-    )
+    const { data } = await axios.get(`${baseUrl}/users/user/${username}`)
 
     // console.log('user', data)
 
@@ -383,7 +376,7 @@ export const getSearchUsers =
       } = getState()
 
       const { data } = await axios.post(
-        'http://localhost:5000/users/search',
+        `${baseUrl}/users/search`,
         { searchLocation },
         {
           headers: {

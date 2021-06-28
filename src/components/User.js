@@ -3,7 +3,6 @@ import { Card, Button, Col, Row } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { addFavourite, deleteFavourite } from '../actions/userActions'
 import { Link } from 'react-router-dom'
-import { Facebook, Instagram, Linkedin, Twitter } from 'react-bootstrap-icons'
 
 const User = ({ user, id, favourite }) => {
   const [fav, setFav] = useState(favourite)
@@ -35,53 +34,24 @@ const User = ({ user, id, favourite }) => {
               color: 'white',
             }}
           >
-            <Card.Title className='mb-2'>{user.username}</Card.Title>
+            <Card.Title className='mb-2'>@{user.username}</Card.Title>
           </Link>
           <Card.Subtitle className='mb-2 text-muted'>
             {user.location.text}
           </Card.Subtitle>
-          <Card.Text
-            // style={{
-            //   overflow: 'hidden',
-            //   whiteSpace: 'nowrap',
-            //   textOverflow: 'ellipsis',
-            // }}
-            className='text-truncate'
-          >
-            {user.bio}
-          </Card.Text>
-          <Row className='align-items-center'>
+          <Card.Text className='text-truncate'>{user.bio}</Card.Text>
+          <Row className='align-items-center mb-2'>
             <Col>
-              <Button onClick={() => onClickHandler()} size='sm'>
+              <Button onClick={() => onClickHandler()}>
                 {fav ? 'Remove from favourites' : 'Add to favourites'}
               </Button>
             </Col>
-            <Col>
+            {/* <Col>
               <Link to={`/user/${user.username}`}>
                 <p>View profile</p>
               </Link>
-            </Col>
+            </Col> */}
           </Row>
-          {user.facebook.length !== 0 && (
-            <a href={`${user.facebook}`}>
-              <Facebook />
-            </a>
-          )}
-          {user.instagram.length !== 0 && (
-            <a href={`${user.instagram}`}>
-              <Instagram />
-            </a>
-          )}
-          {user.twitter.length !== 0 && (
-            <a href={`${user.twitter}`}>
-              <Twitter />
-            </a>
-          )}
-          {user.linkedin.length !== 0 && (
-            <a href={`${user.linkedin}`}>
-              <Linkedin />
-            </a>
-          )}
         </Card.Body>
       </Card>
     </Col>
