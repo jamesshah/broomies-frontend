@@ -28,9 +28,6 @@ const SignUpScreen = ({ location, history }) => {
   const userRegister = useSelector((state) => state.userRegister)
   const { userRegisterLoading, userRegisterError, userInfo } = userRegister
 
-  // const userLogin = useSelector((state) => state.userLogin)
-  // const { userLoginLoading, userLoginError, userInfo } = userLogin
-
   const redirect = location.search ? location.search.split('=')[1] : '/profile'
 
   useEffect(() => {
@@ -44,12 +41,6 @@ const SignUpScreen = ({ location, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    console.log(username)
-    console.log(email)
-    console.log(password)
-    console.log(userLocation)
-    console.log(category)
-    console.log(gender)
     dispatch(
       register(email, username, password, userLocation, category, gender)
     )

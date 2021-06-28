@@ -10,7 +10,6 @@ const AutoComplete = ({
   userLocation,
   setUserLocation,
 }) => {
-  // const place = placeName
   const [search, setSearch] = useState('')
   const [loading, setLoading] = useState(false)
   const [suggestions, setSuggestions] = useState([])
@@ -52,19 +51,14 @@ const AutoComplete = ({
     setUserLocation(suggestion)
   }
 
-  // eslint-disable-next-line
   const debouncedSave = useCallback(
     debounce((newValue) => makeRequest(newValue), 1000),
     []
   )
 
-  //   const getSuggestions = (query) => {
-
   const updateValue = (newValue) => {
-    // console.log(search)
     setLoading(true)
     setSearch(newValue)
-    // setUserLocation(newValue)
     debouncedSave(newValue)
   }
 
@@ -72,7 +66,6 @@ const AutoComplete = ({
     <>
       <FormControl
         type='text'
-        // className={className}
         placeholder={placeholder ? placeholder : 'Find broomies near...'}
         value={search}
         onChange={(e) => updateValue(e.target.value)}

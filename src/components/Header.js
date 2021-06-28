@@ -2,7 +2,6 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
-// import { Link } from 'react-router-dom'
 import { logout } from '../actions/userActions'
 import { useMediaQuery } from 'react-responsive'
 import styles from '../css/Header.module.css'
@@ -11,10 +10,6 @@ const Header = () => {
   const dispatch = useDispatch()
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
-
-  // const isDesktopOrLaptop = useMediaQuery({
-  //   query: '(min-device-width: 992px)',
-  // })
 
   const isMobile = useMediaQuery({
     query: '(max-width: 576px)',
@@ -44,6 +39,12 @@ const Header = () => {
           <Nav className='mr-auto'>
             {userInfo && !isMobile ? (
               <>
+                <LinkContainer to='/'>
+                  <Nav.Link>Home</Nav.Link>
+                </LinkContainer>
+                <LinkContainer to='/search'>
+                  <Nav.Link>Search</Nav.Link>
+                </LinkContainer>
                 <LinkContainer to='/favourites'>
                   <Nav.Link>Favourites</Nav.Link>
                 </LinkContainer>
@@ -104,17 +105,12 @@ const Header = () => {
             </Nav.Item>
             <Nav.Item>
               <LinkContainer to='/favourites' exact>
-                <Nav.Link>
-                  {/* <HeartFill size={30} /> */}
-                  Favourites
-                </Nav.Link>
+                <Nav.Link>Favourites</Nav.Link>
               </LinkContainer>
             </Nav.Item>
           </Nav>
         </Navbar>
       )}
-      {/* </Container> */}
-      {/* </Navbar> */}
     </header>
   )
 }

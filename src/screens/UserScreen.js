@@ -40,8 +40,6 @@ const UserScreen = ({ match, history }) => {
       ) : userProfileError ? (
         <Message variant='danger'>{userProfileError}</Message>
       ) : user ? (
-        // <h1>This is {user.username}'s profile page</h1>
-
         <Container
           className='p-4 rounded shadow mt-4'
           style={{ backgroundColor: 'rgb(33,34,36)' }}

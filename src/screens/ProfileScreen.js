@@ -34,10 +34,6 @@ const ProfileScreen = ({ history }) => {
   const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
-  // const isMobile = useMediaQuery({
-  //   query: '(max-width: 576px)',
-  // })
-
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-device-width: 768px)',
   })
@@ -67,9 +63,6 @@ const ProfileScreen = ({ history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    console.log(username)
-    console.log(email)
-    console.log(password)
     dispatch(
       updateUserProfile({
         email,
@@ -96,10 +89,6 @@ const ProfileScreen = ({ history }) => {
         minHeight: '100vh',
       }}
     >
-      {/* <Container
-        className='p-4 rounded shadow'
-        style={{ backgroundColor: 'rgb(33,34,36)' }}
-      > */}
       {userDetailsError ? (
         <Message variant='danger'>{userDetailsError}</Message>
       ) : userUpdateProfileError ? (
@@ -262,7 +251,6 @@ const ProfileScreen = ({ history }) => {
                   <Form.Label>Facebook</Form.Label>
                   <Form.Control
                     type='text'
-                    placeholder='https://www.facebook.com/james.shah.07'
                     value={facebook}
                     onChange={(e) => setFacebook(e.target.value)}
                   />
@@ -271,7 +259,6 @@ const ProfileScreen = ({ history }) => {
                   <Form.Label>Instagram</Form.Label>
                   <Form.Control
                     type='text'
-                    placeholder='https://www.instagram.com/shahbutbetter'
                     value={instagram}
                     onChange={(e) => setInstagram(e.target.value)}
                   />
@@ -280,7 +267,6 @@ const ProfileScreen = ({ history }) => {
                   <Form.Label>Twitter</Form.Label>
                   <Form.Control
                     type='text'
-                    placeholder='https://www.twitter.com/shahbutbetter'
                     value={twitter}
                     onChange={(e) => setTwitter(e.target.value)}
                   />
@@ -289,7 +275,6 @@ const ProfileScreen = ({ history }) => {
                   <Form.Label>LinkedIn</Form.Label>
                   <Form.Control
                     type='text'
-                    placeholder='https://www.linkedin.com/in/james-shah'
                     value={linkedin}
                     onChange={(e) => setLinkedin(e.target.value)}
                   />

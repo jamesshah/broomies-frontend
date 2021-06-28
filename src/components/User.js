@@ -9,8 +9,6 @@ const User = ({ user, id, favourite }) => {
   const dispatch = useDispatch()
 
   const onClickHandler = () => {
-    // console.log(user)
-    // const change = favourite ? 'delete' : 'add'
     if (favourite) {
       dispatch(deleteFavourite(user.id))
     } else {
@@ -46,11 +44,6 @@ const User = ({ user, id, favourite }) => {
                 {fav ? 'Remove from favourites' : 'Add to favourites'}
               </Button>
             </Col>
-            {/* <Col>
-              <Link to={`/user/${user.username}`}>
-                <p>View profile</p>
-              </Link>
-            </Col> */}
           </Row>
         </Card.Body>
       </Card>

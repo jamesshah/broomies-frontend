@@ -17,7 +17,6 @@ import { login } from '../actions/userActions'
 const LoginScreen = ({ history, location }) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  // const [showAlert, setShowAlert] = useState(false)
 
   const dispatch = useDispatch()
 
@@ -37,8 +36,6 @@ const LoginScreen = ({ history, location }) => {
   const submitHandler = (e) => {
     e.preventDefault()
     dispatch(login(username, password))
-    console.log(username)
-    console.log(password)
   }
 
   return (

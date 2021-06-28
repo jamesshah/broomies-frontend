@@ -8,8 +8,6 @@ import { getFavouriteList, getUserList } from '../actions/userActions'
 import { Link } from 'react-router-dom'
 
 const FavouritesScreen = ({ history }) => {
-  // const [tempLoading, setTempLoading] = useState(true)
-
   const dispatch = useDispatch()
 
   const userLogin = useSelector((state) => state.userLogin)
@@ -27,7 +25,6 @@ const FavouritesScreen = ({ history }) => {
     } else {
       if (!users) dispatch(getUserList())
       if (!favourites) dispatch(getFavouriteList())
-      // setTempLoading(loading)
     }
   }, [dispatch, history, userInfo, favourites, users])
 

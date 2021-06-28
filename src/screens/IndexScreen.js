@@ -99,49 +99,6 @@ const IndexScreen = ({ history }) => {
           </Row>
         </Container>
       </section>
-
-      {/* <section
-        className='p-5 text-white'
-        style={{ backgroundColor: '#111213' }}
-      >
-        <Container>
-          <h1 className='text-center mb-4'>How Does This Work?</h1>
-          <Row>
-            <Col lg={3} md={6}>
-              <Card>
-                <Card.Body>
-                  <Image src='/images/find.svg' fluid />
-                  <Card.Title>Find a roommate</Card.Title>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col lg={3} md={6}>
-              <Card>
-                <Card.Body>
-                  <Image src='/images/chat.svg' fluid />
-                  <Card.Title>Find a roommate</Card.Title>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col lg={3} md={6}>
-              <Card>
-                <Card.Body>
-                  <Image src='/images/meet.svg' fluid />
-                  <Card.Title>Find a roommate</Card.Title>
-                </Card.Body>
-              </Card>
-            </Col>
-            <Col lg={3} md={6}>
-              <Card>
-                <Card.Body>
-                  <Image src='/images/fun.svg' fluid roundedCircle />
-                  <Card.Title>Find a roommate</Card.Title>
-                </Card.Body>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
-      </section> */}
       <Footer />
     </>
   )

@@ -24,8 +24,6 @@ const HomeScreen = ({ history }) => {
     } else {
       if (!favourites) dispatch(getFavouriteList())
       if (!users) dispatch(getUserList())
-
-      // console.log(favourites)
     }
   }, [dispatch, history, userInfo, users, favourites])
 

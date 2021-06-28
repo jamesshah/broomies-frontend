@@ -43,7 +43,6 @@ export const register =
         type: USER_REGISTER_REQUEST,
       })
 
-      // console.log('sending post request in userActions')
       const { data } = await axios.post(
         `${baseUrl}/users`,
         { email, username, password, location, gender, category },
@@ -63,7 +62,6 @@ export const register =
 
       localStorage.setItem('userInfo', JSON.stringify(data))
     } catch (error) {
-      // console.log(error)
       dispatch({
         type: USER_REGISTER_FAIL,
         payload:
@@ -80,7 +78,6 @@ export const login = (username, password) => async (dispatch) => {
       type: USER_LOGIN_REQUEST,
     })
 
-    // console.log('sending post request in userActions')
     const { data } = await axios.post(
       `${baseUrl}/users/login`,
       { username, password },
@@ -105,7 +102,6 @@ export const login = (username, password) => async (dispatch) => {
 }
 
 export const logout = () => (dispatch) => {
-  // localStorage.removeItem('userFavourites')
   localStorage.removeItem('userInfo')
   dispatch({
     type: USER_LOGOUT,
@@ -122,7 +118,6 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       userLogin: { userInfo },
     } = getState()
 
-    // console.log('sending post request in userActions')
     const { data } = await axios.get(`${baseUrl}/users/${id}`, {
       headers: {
         'Content-Type': 'application/json',
@@ -135,7 +130,6 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       payload: data,
     })
   } catch (error) {
-    // console.log(error)
     dispatch({
       type: USER_DETAILS_FAIL,
       payload:
@@ -151,9 +145,6 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
     dispatch({
       type: USER_UPDATE_PROFILE_REQUEST,
     })
-
-    // console.log('user update profile request dispatched')
-    // console.log(user)
 
     const {
       userLogin: { userInfo },
@@ -233,16 +224,10 @@ export const getFavouriteList = () => async (dispatch, getState) => {
 
     console.log('favourites', favourites.data)
 
-    // const favourites = data.filter((d) => {
-    //   userInfo.favourites.includes(d.favourite_id)
-    // })
-
     dispatch({
       type: USER_FAVOURITE_LIST_SUCCESS,
       payload: favourites.data,
     })
-
-    // localStorage.setItem('userFavourites', favourites)
   } catch (error) {
     dispatch({
       type: USER_FAVOURITE_LIST_FAIL,
@@ -265,7 +250,6 @@ export const addFavourite = (favourite_id) => async (dispatch, getState) => {
       userFavourite: { favourites },
     } = getState()
 
-    // console.log(userInfo.token)
     const { data } = await axios.post(
       `${baseUrl}/users/favourites`,
       { favourite_id },
@@ -308,7 +292,6 @@ export const deleteFavourite = (favourite_id) => async (dispatch, getState) => {
       userFavourite: { favourites },
     } = getState()
 
-    // console.log(userInfo.token)
     const _ = await axios.delete(`${baseUrl}/users/favourites`, {
       headers: {
         'Content-Type': 'application/json',
@@ -347,8 +330,6 @@ export const getUserProfile = (username) => async (dispatch) => {
 
     const { data } = await axios.get(`${baseUrl}/users/user/${username}`)
 
-    // console.log('user', data)
-
     dispatch({
       type: USER_PROFILE_SUCCESS,
       payload: data,
@@ -370,7 +351,6 @@ export const getSearchUsers =
       dispatch({
         type: SEARCH_USERS_REQUEST,
       })
-      console.log(searchLocation)
       const {
         userLogin: { userInfo },
       } = getState()
