@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { Container, Row, Col, Image } from 'react-bootstrap'
 import { ArrowRight } from 'react-bootstrap-icons'
 import Footer from '../components/Footer'
@@ -29,13 +30,15 @@ const IndexScreen = ({ history }) => {
                 <strong>Hustler </strong>
                 to share your room with.
               </p>
-              <button
-                className='btn btn-lg text-white'
-                style={{ backgroundColor: '#4D61FC' }}
-              >
-                Sign Up
-                <ArrowRight style={{ marginLeft: '10' }} />
-              </button>
+              <Link to='/signup'>
+                <button
+                  className='btn btn-lg text-white'
+                  style={{ backgroundColor: '#4D61FC' }}
+                >
+                  Sign Up
+                  <ArrowRight style={{ marginLeft: '10' }} />
+                </button>
+              </Link>
             </div>
             <Image
               src='/images/find-roommate.svg'
