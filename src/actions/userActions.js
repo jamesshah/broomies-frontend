@@ -33,7 +33,7 @@ import {
   SEARCH_USERS_SUCCESS,
 } from '../constants/userConstants'
 
-const baseUrl = 'https://broomies-backend.herokuapp.com/'
+const baseUrl = 'https://broomies-backend.herokuapp.com'
 
 export const register =
   (email, username, password, location, category, gender) =>
